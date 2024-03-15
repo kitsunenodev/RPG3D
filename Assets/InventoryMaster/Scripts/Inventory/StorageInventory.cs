@@ -46,7 +46,7 @@ public class StorageInventory : MonoBehaviour
 
     public bool isChest;
 
-    public void addItemToStorage(int id, int value)
+    public void AddItemToStorage(int id, int value)
     {
         Item item = itemDatabase.getItemByID(id);
         item.itemValue = value;
@@ -92,7 +92,7 @@ public class StorageInventory : MonoBehaviour
 
     }
 
-    public void setImportantVariables()
+    public void SetImportantVariables()
     {
         if (itemDatabase == null)
             itemDatabase = (ItemDataBaseList)Resources.Load("ItemDatabase");
@@ -130,7 +130,7 @@ public class StorageInventory : MonoBehaviour
             if (inventory.activeSelf)
             {
                 storageItems.Clear();
-                setListofStorage();
+                SetListOfStorage();
                 inventory.SetActive(false);
                 inv.DeleteAllItems();
             }
@@ -158,7 +158,7 @@ public class StorageInventory : MonoBehaviour
 
                 inv.ItemsInInventory.Clear();
                 inventory.SetActive(true);
-                addItemsToInventory();
+                AddItemsToInventory();
                 showTimer = false;
                 if (timer != null)
                     timer.SetActive(false);
@@ -172,7 +172,7 @@ public class StorageInventory : MonoBehaviour
             }
 
             storageItems.Clear();
-            setListofStorage();
+            SetListOfStorage();
             inventory.SetActive(false);
             inv.DeleteAllItems();
             tooltip.deactivateTooltip();
@@ -183,13 +183,13 @@ public class StorageInventory : MonoBehaviour
 
 
 
-    void setListofStorage()
+    void SetListOfStorage()
     {
-        Inventory inv = inventory.GetComponent<Inventory>();
-        storageItems = inv.GetItemList();
+        Inventory storage = inventory.GetComponent<Inventory>();
+        storageItems = storage.GetItemList();
     }
 
-    void addItemsToInventory()
+    void AddItemsToInventory()
     {
         Inventory iV = inventory.GetComponent<Inventory>();
         for (int i = 0; i < storageItems.Count; i++)

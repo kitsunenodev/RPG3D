@@ -37,7 +37,7 @@ public class StorageInventoryEditor : Editor
 
     void addItemGUI()                                                                                                       //add a item to the inventory through the inspector
     {
-        inv.setImportantVariables();
+        inv.SetImportantVariables();
         EditorGUILayout.BeginHorizontal();                                                                                  //starting horizontal GUI elements
         ItemDataBaseList inventoryItemList = (ItemDataBaseList)Resources.Load("ItemDatabase");                            //loading the itemdatabase
         string[] items = new string[inventoryItemList.itemList.Count];                                                      //create a string array in length of the itemcount
@@ -50,7 +50,7 @@ public class StorageInventoryEditor : Editor
         GUI.color = Color.green;                                                                                            //set the color of all following guielements to green
         if (GUILayout.Button("Add Item"))                                                                                   //creating button with name "AddItem"
         {
-            inv.addItemToStorage(itemID, itemValue);
+            inv.AddItemToStorage(itemID, itemValue);
         }
 
         EditorGUILayout.EndHorizontal();                                                                                    //end the horizontal gui layout
