@@ -97,7 +97,7 @@ public class PlayerInventory : MonoBehaviour
                     mainInventory = inventory.GetComponent<Inventory>();
                 mainInventory.SortItems();
                 if (item.itemAttributes[i].attributeName == "Slots")
-                    changeInventorySize(item.itemAttributes[i].attributeValue);
+                    ChangeInventorySize(item.itemAttributes[i].attributeValue);
             }
         }
     }
@@ -105,12 +105,12 @@ public class PlayerInventory : MonoBehaviour
     void UnEquipBackpack(Item item)
     {
         if (item.itemType == ItemType.Backpack)
-            changeInventorySize(normalSize);
+            ChangeInventorySize(normalSize);
     }
 
-    void changeInventorySize(int size)
+    void ChangeInventorySize(int size)
     {
-        dropTheRestItems(size);
+        DropTheRestItems(size);
 
         if (mainInventory == null)
             mainInventory = inventory.GetComponent<Inventory>();
@@ -151,7 +151,7 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    void dropTheRestItems(int size)
+    void DropTheRestItems(int size)
     {
         if (size < mainInventory.ItemsInInventory.Count)
         {
@@ -305,8 +305,6 @@ public class PlayerInventory : MonoBehaviour
 
         // Pour la barre d'XP
         float percentageXP = ((currentXP * 100) / maxXP) / 100;
-        Debug.Log(percentageXP);
-        Debug.Log(experienceBar);
         experienceBar.fillAmount = percentageXP;
 
         // empecher la vie actuelle d'etre supérieur à la vie max
@@ -365,6 +363,11 @@ public class PlayerInventory : MonoBehaviour
             }
         }
 
+    }
+
+    public bool InventoryOpen()
+    {
+        return (craftSystemGO.activeSelf || inventory.activeSelf || characterSystem.activeSelf);
     }
 
 }

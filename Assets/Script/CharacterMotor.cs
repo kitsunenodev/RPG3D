@@ -92,12 +92,12 @@ public class CharacterMotor : MonoBehaviour {
                     animations.Play("walk");
                 }
 
-                if (Input.GetKeyDown(KeyCode.Mouse0))
+                if (Input.GetKeyDown(KeyCode.Mouse0) && !playerInv.InventoryOpen())
                 {
                     Attack();
                 }
 
-                if (Input.GetKeyDown(KeyCode.Mouse1))
+                if (Input.GetKeyDown(KeyCode.Mouse1) && !playerInv.InventoryOpen())
                 {
                     Spell();
                 }
@@ -151,12 +151,12 @@ public class CharacterMotor : MonoBehaviour {
                     animations.Play("idle");
                 }
 
-                if (Input.GetKeyDown(KeyCode.Mouse0))
+                if (Input.GetKeyDown(KeyCode.Mouse0) && !playerInv.InventoryOpen())
                 {
                     Attack();
                 }
 
-                if (Input.GetKeyDown(KeyCode.Mouse1))
+                if (Input.GetKeyDown(KeyCode.Mouse1) && !playerInv.InventoryOpen())
                 {
                     Spell();
                 }
